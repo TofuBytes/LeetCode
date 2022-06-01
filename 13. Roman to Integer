@@ -1,0 +1,81 @@
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        num = 0
+        slen = len(s)
+        
+        i = 0
+        while i < slen: 
+            roman = s[i]
+            print(num)
+            if roman == "I":
+                if i + 1 < slen:
+                    if s[i + 1] == "V":
+                        num+= 4
+                        i+=2
+                    else:
+                        if s[i + 1] == "X":
+                            num+= 9
+                            i+=2
+                        else:
+                            num+= 1
+                            i+=1 
+                else:
+                    num+=1
+                    i+=1
+            else:            
+                if roman == "X":
+                    if i + 1 < slen:
+                        if  s[i + 1] == "L":
+                            num+= 40
+                            i+=2
+                        else:
+                            if s[i + 1] == "C":
+                                num+= 90
+                                i+=2
+                            else:
+                                num+= 10
+                                i+=1
+                    else:
+                        num+=10
+                        i+=1
+                else:
+                    if roman == "C":
+                        if i + 1 < slen:
+                            if s[i + 1] == "D":
+                                num+= 400
+                                i+=2
+                            else: 
+                                if s[i + 1] == "M":
+                                    num+= 900
+                                    i+=2
+                                else:
+                                    num+= 100
+                                    i+=1         
+                        else:
+                            num+=100
+                            i+=1
+                    else:
+                        if roman == "V":
+                            num+= 5
+                            i+=1
+                        else :    
+                            if roman == "L":
+                                num+= 50
+                                i+=1
+                            else:
+                                if roman == "D":
+                                    num+= 500
+                                    i+=1
+                                else:  
+                                    if roman == "M":
+                                        num+= 1000
+                                        i+=1
+        
+        return num
+             
+                
