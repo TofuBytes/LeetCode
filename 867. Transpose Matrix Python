@@ -1,0 +1,15 @@
+class Solution(object):
+    def transpose(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        
+        m, n = len(matrix[0]), len(matrix)
+        trans = [[0] * n for i in range(m)]
+        
+        for r in range(0, m):
+            for c in range(0,n):
+                trans[r][c] = matrix[c][r]
+        
+        return trans
